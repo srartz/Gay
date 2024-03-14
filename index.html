@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>365 Motivos Para Te Amar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #dcedc8; /* verde claro */
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #e91e63;
+            font-size: 36px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+        }
+        .motivos {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fce4ec;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .motivo {
+            display: none;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+        .motivo.active {
+            display: block;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .next, .previous {
+            cursor: pointer;
+            color: #e91e63;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        .next:hover, .previous:hover {
+            color: #ff4081;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>365 Motivos Para Te Amar</h1>
+        <h2>Leia 1 por dia</h2>
+        <div class="motivos">
+            <!-- Aqui serão inseridos os motivos -->
+        </div>
+        <div class="navigation">
+            <span class="previous">&lt; Anterior</span>
+            <span class="next">Próximo &gt;</span>
+        </div>
+    </div>
+
+    <script>
+        const motivos = [
+        "Você é meu sorriso de todos os dias.",
+"Seu abraço é reconfortante.",
+"Você me faz rir mesmo nos meus piores dias.",
+"Sua determinação me inspira.",
+"Você sempre me apoia em todas as minhas decisões.",
+"Seu amor me motiva a ser uma pessoa melhor.",
+"Você é incrivelmente carinhosa.",
+"Você é minha melhor amiga.",
+"Nós podemos conversar sobre qualquer coisa por horas.",
+"Você me entende como ninguém mais.",
+"Sua presença é suficiente para iluminar meu dia.",
+"Nós temos tantas memórias maravilhosas juntos.",
+"Você me ajuda a superar meus medos.",
+"Você é a razão pela qual eu acredito no amor verdadeiro.",
+"Você me ensina coisas novas todos os dias.",
+"Nós podemos ser nós mesmos juntos(as).",
+"Você é o meu porto seguro.",
+"Você é meu parceiro(a) de aventuras.",
+"Seu beijo é a minha cura para qualquer coisa.",
+"Você é bonito(a) e perfeito(a).",
+"Sua voz é a música para os meus ouvidos.",
+"Eu sinto sua falta quando estamos longe um do outro.",
+"Você é minha fonte constante de felicidade.",
+"Você é a pessoa mais gentil que eu já conheci.",
+"Você me ama incondicionalmente.",
+"Nós somos uma equipe imbatível.",
+"Você é a melhor coisa que já aconteceu comigo.",
+"Você é o meu lar.",
+"Eu admiro seu comprometimento com nosso relacionamento.",
+"Você me faz sentir especial todos os dias.",
+"Eu confio em você com todo o meu coração.",
+"Você me ensinou o verdadeiro significado do amor.",
+"Você é a razão pela qual eu acordo sorrindo todas as manhãs.",
+"Você é o sonho que se tornou realidade.",
+"Eu amo a forma como você me olha.",
+"Eu amo a forma como você cuida de mim.",
+"Você é minha inspiração.",
+"Eu não consigo imaginar minha vida sem você.",
+"Você é mais do que suficiente para mim.",
+"Eu acredito em nós.",
+"Nós superamos todos os obstáculos juntos(as).",
+"Você é a pessoa com quem quero envelhecer.",
+"Você me faz sentir amado todos os dias.",
+"Eu amo a forma como você me faz rir mesmo nos momentos mais difíceis.",
+"Eu amo a forma como você me abraça forte quando estou triste.",
+"Eu amo a forma como você me faz sentir especial em todos os momentos.",
+"Você é minha alma gêmea.",
+"Nós estamos destinados a ficar juntos.",
+"Eu não trocaria você por nada neste mundo.",
+"Eu amo cada pedacinho de você.",
+"Eu amo a forma como você cuida de nossos filhos.",
+"Eu amo a forma como você cuida dos animais de estimação.",
+"Eu amo como você é dedicada ao seu trabalho.",
+"Eu amo você em tudo.",
+"Você é o melhor presente que a vida me deu.",
+"Eu te amo mais a cada dia que passa.",
+"Eu sinto que você é a pessoa que eu estava esperando a vida inteira.",
+"Você é meu conto de fadas da vida real.",
+"Você me faz acreditar em contos de fadas.",
+"Você é minha pessoa favorita neste mundo.",
+"Eu sempre quero estar ao seu lado.",
+"Nós somos feitos um para o outro.",
+"Você é meu anjo da guarda.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é minha luz no fim do túnel.",
+"Você é o melhor amigo(a) que alguém poderia pedir.",
+"Eu não sei o que seria de mim sem você.",
+"Nós enfrentamos todos os desafios juntos(as).",
+"Eu amo a forma como você me apoia em todos os meus sonhos.",
+"Eu amo a forma como você me olha com tanto amor.",
+"Eu amo a forma como você se preocupa comigo.",
+"Eu te amo exatamente como você é.",
+"Você é minha razão para sorrir.",
+"Você é minha paz em meio ao caos.",
+"Você é meu lugar feliz.",
+"Você é minha pessoa favorita para passar o tempo.",
+"Eu amo a forma como você me faz sentir vivo.",
+"Eu amo como você faz até as coisas mais simples se tornarem especiais.",
+"Eu amo a forma como você valoriza nosso relacionamento.",
+"Você é minha âncora em um mar tempestuoso.",
+"Eu te amo até a lua e de volta.",
+"Você é o melhor parceira de dança.",
+"Eu não posso imaginar minha vida sem você ao meu lado.",
+"Você é minha melhor metade.",
+"Eu não posso esperar para passar o resto da minha vida com você.",
+"Eu te amo mais do que chocolate.",
+"Você é meu motivo para sorrir todos os dias.",
+"Você é minha maior bênção.",
+"Eu sinto sua falta mesmo quando estamos juntos.",
+"Você é meu destino.",
+"Você é minha pessoa favorita para abraçar.",
+"Eu amo a forma como você me faz sentir seguro.",
+"Eu amo a forma como você cuida de mim quando estou doente.",
+"Você é minha heroína.",
+"Você é o melhor presente que Deus me deu.",
+"Eu te amo até o infinito.",
+"Você é meu farol na escuridão.",
+"Você é meu combustível para a vida.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é minha maior inspiração.",
+"Você é meu melhor confidente.",
+"Você é minha razão para acreditar no amor verdadeiro.",
+"Você é meu raio de esperança em tempos difíceis.",
+"Eu amo a forma como você me faz sentir querido.",
+"Eu amo a forma como você me faz rir até doer a barriga.",
+"Eu amo a forma como você me faz sentir como se fosse o único no mundo.",
+"Eu te amo mesmo quando estou bravo com você.",
+"Você é minha calma em uma tempestade.",
+"Você é meu melhor conselheiro/minha melhor conselheira.",
+"Você é minha estrela guia.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que ontem, mas menos do que amanhã.",
+"Eu nunca me canso de dizer o quanto eu te amo.",
+"Você é minha pessoa favorita para fazer planos para o futuro.",
+"Você é minha luz no fim do túnel.",
+"Você é meu motivo para acordar todas as manhãs.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu pilar de força.",
+"Eu te amo além das palavras.",
+"Você é meu tudo.",
+"Você é minha paixão.",
+"Eu te amo incondicionalmente.",
+"Você é meu amor eterno.",
+"Você é minha razão para acreditar em um amanhã melhor.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é minha razão para sorrir.",
+"Você é meu paraíso na Terra.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu destino.",
+"Você é minha alma gêmea.",
+"Você é meu conto de fadas da vida real.",
+"Você é meu sol em um dia nublado.",
+"Você é meu amor verdadeiro.",
+"Você é meu presente de Deus.",
+"Você é minha fonte de alegria.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é minha melhor amiga e como uma irmã.",
+"Você é minha inspiração diária.",
+"Eu te amo mais a cada respiração que eu dou.",
+"Você é meu motivo para acreditar.",
+"Você é minha razão para viver.",
+"Eu te amo até o fim dos tempos.",
+"Você é meu anjo da guarda.",
+"Você é meu refúgio seguro.",
+"Você é meu sonho tornado realidade.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é minha paz em meio ao caos.",
+"Você é minha bênção.",
+"Você é minha razão para ser feliz.",
+"Você é meu coração.",
+"Você é minha alma.",
+"Você é meu tesouro.",
+"Você é minha estrela brilhante.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha luz no fim do túnel.",
+"Você é minha inspiração diária.",
+"Você é minha parceira de vida.",
+"Você é minha melhor amiga.",
+"Você é meu amor eterno.",
+"Você é minha vida.",
+"Eu te amo além das palavras.",
+"Você é meu tudo.",
+"Você é minha razão para acordar todas as manhãs.",
+"Você é meu motivo para sorrir.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amiga e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é minha parceira de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu parceiro(a) de vida.",
+"Você é meu tudo.",
+"Você é minha luz no fim do túnel.",
+"Você é minha razão para sorrir.",
+"Você é meu motivo para acreditar.",
+"Você é minha estrela guia.",
+"Você é minha fonte de força.",
+"Você é meu presente de Deus.",
+"Você é meu lar.",
+"Eu te amo mais do que qualquer coisa neste mundo.",
+"Você é meu raio de sol em um dia chuvoso.",
+"Você é minha inspiração diária.",
+"Você é meu sonho tornado realidade.",
+"Você é meu destino.",
+"Eu te amo mais a cada dia.",
+"Você é minha maior bênção.",
+"Você é meu porto seguro.",
+"Você é minha alma gêmea.",
+"Você é meu amor verdadeiro.",
+"Eu te amo mais do que palavras podem expressar.",
+"Você é meu melhor amigo(a) e amante.",
+"Você é minha razão para acreditar.",
+"Você é meu refúgio seguro.",
+"Você é minha inspiração diária."
+
+        ];
+
+        const motivosContainer = document.querySelector('.motivos');
+        const nextBtn = document.querySelector('.next');
+        const previousBtn = document.querySelector('.previous');
+        let index = 0;
+
+        function showMotivo() {
+            motivosContainer.innerHTML = `<div class="motivo active">${motivos[index]}</div>`;
+        }
+
+        function nextMotivo() {
+            if (index < motivos.length - 1) {
+                index++;
+                showMotivo();
+            }
+        }
+
+        function previousMotivo() {
+            if (index > 0) {
+                index--;
+                showMotivo();
+            }
+        }
+
+        nextBtn.addEventListener('click', nextMotivo);
+        previousBtn.addEventListener('click', previousMotivo);
+
+        showMotivo();
+    </script>
+</body>
+</html>
